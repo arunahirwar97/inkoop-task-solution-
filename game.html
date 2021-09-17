@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>
+		Task Solution for Javascript Developer in Inkoop 
+	</title>
+</head>
+
+<body style="text-align:center;">
+	<h1 style="color: green">
+		Task Solution for Javascript Developer in Inkoop 
+	</h1>
+	<p id="INP_UP"></p>
+	<button onclick="inp_Run()">
+		Click Here
+	</button>
+	<p id="INP_DOWN12"></p>
+	<p id="INP_DOWN13"></p>
+	<p id="INP_DOWN14"></p>
+	
+
+	<script>
+		var el_up = document.getElementById("INP_UP");
+		var el_down = document.getElementById("INP_DOWN12");
+		var el_down1 = document.getElementById("INP_DOWN13");
+		var el_down2 = document.getElementById("INP_DOWN14");
+		el_up.innerHTML =
+		"Click on the button and start the game";
+		var data = [];
+		var data1 = [];
+		function inp_Run() {
+			
+			if (data.length <=4){
+			
+			var el_down12 = Array.from({
+				length: 1
+			}, () => Math.floor(Math.random() * 5));
+			
+			el_down.innerHTML ="Player 1 - Won : "+ el_down12;
+			var el_down13 = Array.from({
+				length: 1
+			}, () => Math.floor(Math.random() * 5));
+
+			el_down1.innerHTML = "Player 2 - Won : "+el_down13;
+			data.push(el_down12);
+			data1.push(el_down13);
+			if (data.length == 3){
+					total = 0;
+					for (var i in data) {
+						total = total+Number(data[i]);
+
+					}
+					if (total ==0){
+							el_down2.innerHTML = "Player 2 Won"; 
+							}
+					}
+
+			if (data1.length == 3){
+					total = 0;
+					for (var i in data1) {
+						total = total+Number(data1[i]);
+
+					}
+					if (total == 0){
+							el_down2.innerHTML = "Player 1 Won"; 
+							}
+					}
+
+			if(data.length == 5){
+					total_data = 0;
+					for (var i in data) {
+						total_data = total_data+Number(data[i]);
+
+					}
+					
+					total_data1 = 0;
+					for (var i in data1) {
+						total_data1 = total_data1+Number(data1[i]);
+
+					}
+					
+					if(total_data > total_data1){
+								el_down2.innerHTML = "Player 1 Won The Match";	
+								}
+					if(total_data < total_data1){
+								el_down2.innerHTML = "Player 2 Won The Match";	
+								}
+					if(total_data == total_data1){
+								el_down2.innerHTML = "Both Player Score are same so please restart this game.";	
+								}
+					
+		
+			}
+			
+		} 
+
+		}
+	</script>
+</body>
+
+</html>
